@@ -5,7 +5,7 @@
 - name: Run gateway restore backup against provided list of gateways
   hosts: gateway
   gather_facts: no
-  become: true
+  become: false
   tasks:
   - include_role:
       name: gateway_basic_restore_backup
