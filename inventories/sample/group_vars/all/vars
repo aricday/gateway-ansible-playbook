@@ -76,13 +76,13 @@ configure_db: false  # Creates the database
 #### OTK Database Configurations (if OTK database is in the Gateway MySQL database, uncomment & set these properties)
 
 # OTK Database Name
-# otkdb_name: otk_db
+otkdb_name: otk_db
 
 # OTK Database User
-# otkdb_user: otk_user
+otkdb_user: otk_user
 
 # Password for OTK Database User
-# otkdb_userpwd: "{{ vault_otk_database_pass }}"
+otkdb_userpwd: "{{ vault_otk_database_pass }}"
 
 #### Connection Properties
 
@@ -125,16 +125,16 @@ gateway_license_upload_dir: "/home/ssgconfig/license"
 node_props_dir: "node_properties"
 
 # Directory on Ansible controller to store node configuration & assertion backups. Will be created if it does not exist.
-controller_dir_backup_location: /var/local/ssgbackup/
+controller_dir_backup_location: /Users/aricday/Projects/gateway-ansible-playbook/playbooks/output/ssgbackup/
 
 # Directory on Ansible controller containing license files for use by gateway_install_license role.
 controller_dir_license_location: /tmp/license
 
 # Directory on Ansible controller to store database dump for gateway_export_database & gateway_import_database roles. Will be created if it does not exist.
-controller_dir_db_backup_location: /tmp/db_dump
+controller_dir_db_backup_location: /Users/aricday/Projects/gateway-ansible-playbook/playbooks/output
 
 # Directory on Gateways to upload database dump file for gateway_export_database & gateway_import_database roles. Will be created if it does not exist.
-remote_db_temp_dir: "{{ controller_dir_db_backup_location }}"
+remote_db_temp_dir: "/tmp/db_dump"
 
 # File name for compressed database dump file for gateway_export_database & gateway_import_database roles.
 db_dump_zip_file: "{{ remote_db_temp_dir }}/mysql_result"
