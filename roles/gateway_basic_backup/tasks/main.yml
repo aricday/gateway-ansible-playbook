@@ -19,7 +19,8 @@
     module: file
     path: "{{ controller_dir_backup_location }}"
     state: directory
-    mode: '0700'
+    mode: "0700"
+    owner: "aricday"
 
 - name: Find old backup files created by this Playbook.
   find:

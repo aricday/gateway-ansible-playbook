@@ -5,6 +5,7 @@
     path: "{{ controller_dir_db_backup_location }}"
     state: directory
     mode: "0700"
+    owner: "aricday"
 
 - name: create remote temp directory for output files
   file:
