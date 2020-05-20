@@ -89,6 +89,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.DS_Store
+.gitignore
+playbooks/output/.DS_Store
+playbooks/.DS_Store
 
 # Spyder project settings
 .spyderproject
