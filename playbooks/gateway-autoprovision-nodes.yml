@@ -15,6 +15,15 @@
   roles:
     - gateway_configure_primary_node
 
+- hosts: gateway_failover_db
+  vars:
+    ansible_connection: local
+    configure_db: true
+    database_host: "slave.10.demo"
+    cluster_host: "slave.10.demo"
+  roles:
+    - gateway_configure_processing_node
+    
 - hosts: gateway_processing_node
   vars:
     ansible_connection: local
