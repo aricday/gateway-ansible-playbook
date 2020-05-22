@@ -1,0 +1,6 @@
+- name: stop mysql slave on primary_db node
+  shell:
+    cmd: mysqladmin stop-slave
+  register: status
+  changed_when:
+    - '"Slave stopped" in status.stdout'

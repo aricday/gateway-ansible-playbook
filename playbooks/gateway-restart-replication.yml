@@ -1,0 +1,8 @@
+---
+# This playbook will restart replication error on MySQL cluster.
+
+- hosts: gateway
+  become: false
+  gather_facts: true
+  roles:
+    - gateway_restart_replication

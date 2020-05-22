@@ -1,0 +1,14 @@
+- name: Reset Master
+  shell:
+    cmd: mysql -e "reset master\G;"
+  register: status
+
+- name: Reset Slave
+  shell:
+    cmd: mysql -e "reset slave\G;"
+  register: status
+  
+- name: Reset Slave
+  shell:
+    cmd: mysql -e "reset slave all\G;"
+  register: status

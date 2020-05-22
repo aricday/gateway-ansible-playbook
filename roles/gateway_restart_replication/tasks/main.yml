@@ -1,0 +1,46 @@
+---
+# This task will restart replication on the secondary gateway MySQL 8 database.
+# root access to run /opt/SecureSpan/Appliance/bin/add_slave_user.sh and create_user.sh
+# root access to update /etc/my.cnf
+
+- name: Setup variables
+  set_fact:
+    primary_db: "{{ hostvars[groups['gateway_primary_db'][0]].inventory_hostname }}"
+    failover_db: "{{ hostvars[groups['gateway_failover_db'][0]].inventory_hostname }}"
+
+- name: Set failover hostname
+  set_fact:
+    failover_hostname: "{{ hostvars[groups['gateway_failover_db'][0]].inventory_hostname }}"
+
+- name: stop-slave MySQL on primary_db node
+  include: stop_slave.yml
+
+- name: reset-slave MySQL node
+  include: reset_slave.yml
+
+- name: Recreate Slave on gateway_failover_db node
+  include: recreate_slave.yml
+  vars:
+    - master_node: "{{ failover_db }}"
+    - slave_node: "{{ primary_db }}"
+  delegate_to: localhost
+
+- name: Run restart_replication.sh on primary_db node
+  include: restart_replication.yml
+  vars:
+    - master_node: "{{ primary_db }}"
+    - slave_node: "{{ failover_db }}"
+  delegate_to: localhost
+
+- name: Verify replication has started on gateway_primary_db node
+  include: verify_replication.yml
+  vars:
+    ansible_user: root
+    ansible_ssh_password: "{{ gateway_root_password }}"
+
+- name: Verify replication has started on gateway_failover_db node
+  include: verify_replication.yml
+  vars:
+   ansible_user: root
+   ansible_ssh_password: "{{ gateway_root_password }}"
+  delegate_to: "{{ failover_db }}"
