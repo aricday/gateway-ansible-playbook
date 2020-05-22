@@ -1,0 +1,13 @@
+---
+## Copy the L7P patch files to host
+- include: copy_patches.yml
+
+## Enable section for platform patch
+- include: stop_gateway.yml
+- include: patch_platform.yml
+- include: restart_gateway_appliance.yml
+
+## Enable section for application patch
+- include: stop_gateway.yml
+- include: patch_application.yml
+- include: restart_gateway_appliance.yml

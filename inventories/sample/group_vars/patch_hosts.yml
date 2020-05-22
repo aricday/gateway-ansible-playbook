@@ -1,0 +1,5 @@
+---
+
+patch_source_directory: '/Users/aricday/Projects/PublicGithub/GatewayPatcher_Ansible/roles/gateway_patch_appliance/files/'
+application_patchId: 'CA_API_Gateway_v9.4.00.10242-CR04'
+platform_patchId: 'Layer7_API_PlatformUpdate_64bit_v10.X-CentOS-2020-04-27'
