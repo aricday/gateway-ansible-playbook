@@ -229,3 +229,12 @@ Run any post-upgrade tasks that apply, based on the pre-upgrade analyzer report,
 ## Verify the Upgraded Gateways
 
 Run your verification procedures to ensure the Gateways are running successfully.
+
+
+## Patch with .L7P files (appliance and platform)
+
+```
+ $ ansible-playbook playbooks/gateway-appliance-patcher.yml -i inventories/sample/hosts.yml --extra-vars no_log=false
+
+ $ ansible-playbook playbooks/gateway-restart-replication.yml -i inventories/sample/hosts.yml
+```
