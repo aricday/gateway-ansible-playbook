@@ -13,7 +13,7 @@ Requirements
 * The Gateway nodes are added to [patch_hosts](inventories/demo/hosts#L28) in HOSTS file
 
 ```
-    $ ansible-playbook playbooks/gateway-appliance-patcher.yml -i inventories/demo/hosts 
+    $ ansible-playbook playbooks/gateway-appliance-patcher.yml -i inventories/sample/hosts.yml
 ```
 
 group_vars Variables
@@ -21,7 +21,7 @@ group_vars Variables
 ```
 ---
 # local directory on controller
-patch_source_directory: "<directory>/GatewayPatcher_Ansible/roles/gateway_patch_appliance/files/"
+patch_source_directory: "<directory>/gateway-ansible-playbook/roles/gateway_patch_appliance/files/"
 
 # application patch file name
 application_patchId: 'CA_API_Gateway_v9.4.00.10242-CR04'
