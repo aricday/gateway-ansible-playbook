@@ -4,7 +4,7 @@ This role requires root access to call create_user.sh and restart_replication.sh
 
 ### Requirements
 - The role must be executed with the Ansible user having root privilege.
-   root access to run /opt/SecureSpan/Appliance/bin/restart_replication.sh and create_user.sh
+   root access to run /opt/SecureSpan/Appliance/bin/restart_replication.sh and create_slave.sh
    root access to update /etc/my.cnf
 -  The network of the target gateways must be pre-configured.
 -  The MySQL 8 server must be started
