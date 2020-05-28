@@ -1,7 +1,6 @@
 ---
 
 - name: uploading patch file
-  #command: '/opt/SecureSpan/Controller/bin/patch.sh upload {{ application_patch.file.dest }}'
   command: '{{ patch_upload_cmd }} {{ patch_target_directory }}{{ application_patchId }}.L7P'
 
 - name: checking to see list of patches

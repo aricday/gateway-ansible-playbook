@@ -23,7 +23,7 @@
     cluster_host: "slave.10.demo"
   roles:
     - gateway_configure_processing_node
-    
+
 - hosts: gateway_processing_node
   vars:
     ansible_connection: local
